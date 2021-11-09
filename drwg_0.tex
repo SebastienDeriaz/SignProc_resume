@@ -1,0 +1,70 @@
+\documentclass[dvipsnames]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usepackage{ifthen}
+
+\newcommand{\inode}[3][]{%
+\ifthenelse {\equal {#1} {}}%
+{\tikz[inner sep=0pt,baseline,outer sep=0pt,remember picture]\node[anchor=base](#2){#3};}%
+{\tikz[baseline,remember picture]\node[anchor=base,outer xsep=0pt,inner xsep=0pt,color=#1](#2){#3};}}
+
+\begin{document}
+\begin{tabular}{c}
+
+Entrée : AABABBBABAABABBBABBABB\\
+Ségmentation : A$|$AB$|$ABB$|$B$|$ABA$|$ABAB$|$BB$|$ABBA$|$BB\hspace*{8.5pt}\\
+\\\\
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{l|rrrrrrrrr}
+Position (Adresse) & 
+\inode{A}{1} &
+\inode{B}{2} &
+\inode{C}{3} &
+\inode{D}{4} &
+\inode{E}{5} &
+\inode{F}{6} &
+\inode{G}{7} &
+\inode{H}{8} &
+\inode{I}{9}\\\hline
+Séquence &
+\inode[OrangeRed]{1A}{A} &
+\inode[]{1B}{A}\inode[OrangeRed]{1C}{B} &
+\inode[]{1D}{AB}\inode[OrangeRed]{1E}{B} &
+\inode[OrangeRed]{1F}{B} &
+\inode[]{1G}{AB}\inode[OrangeRed]{1H}{A} &
+\inode[]{1I}{ABA}\inode[OrangeRed]{1J}{B} &
+\inode[]{1K}{B}\inode[OrangeRed]{1L}{B} &
+\inode[]{1M}{ABB}\inode[OrangeRed]{1N}{A} &
+\inode[]{1O}{B}\inode[OrangeRed]{1P}{B}\\\hline
+Représentation &
+\inode[OrangeRed]{2A}{A} &
+\inode[]{2B}{1}\inode[OrangeRed]{2C}{B} &
+\inode[]{2D}{2}\inode[OrangeRed]{2E}{B} &
+\inode[OrangeRed]{2F}{B} &
+\inode[]{2G}{2}\inode[OrangeRed]{2H}{A} &
+\inode[]{2I}{5}\inode[OrangeRed]{2J}{B} &
+\inode[]{2K}{4}\inode[OrangeRed]{2L}{B} &
+\inode[]{2M}{3}\inode[OrangeRed]{2N}{A} &
+\inode[]{2O}{7}\ ~~\\\hline
+Code &
+\inode[OrangeRed]{3A}{0} &
+\inode[]{3B}{1}\inode[OrangeRed]{3C}{1} &
+\inode[]{3D}{10}\inode[OrangeRed]{3E}{1} &
+\inode[]{3F}{00}\inode[OrangeRed]{3G}{1} &
+\inode[]{3H}{010}\inode[OrangeRed]{3I}{0} &
+\inode[]{3J}{101}\inode[OrangeRed]{3K}{1} &
+\inode[]{3L}{100}\inode[OrangeRed]{3M}{1} &
+\inode[]{3N}{011}\inode[OrangeRed]{3O}{0} &
+\inode[]{3P}{0111}
+\end{tabular}
+\end{tabular}
+\begin{tikzpicture}[remember picture,overlay, thin,blend mode=multiply,gray]
+\draw[->] (B) -- (2D);
+\draw[->] (B) -- (2G);
+\draw[->] (E) -- (2I);
+\draw[->] (D) -- (2K);
+\draw[->] (C) -- (2M);
+\draw[->] (G) -- (2O);
+\end{tikzpicture}
+\end{document}
