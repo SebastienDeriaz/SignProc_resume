@@ -10,6 +10,7 @@
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{siunitx}
+\usepackage{subfiles}
 \usepackage[dvipsnames]{xcolor}
 
 \fancyhead[CO]{Signproc - Résumé 2021}
@@ -58,47 +59,8 @@ La limite est donnée par
 $$\frac{E_b}{N_0}=B\frac{2^{\frac{C}{B}-1}}{R}$$
 \subsection{Autres}
 $$\SI{1}{\watt}=\SI{30}{\deci\bel m}$$
-\section{Codage de canal}
-\begin{center}
-\begin{tabular}{c|l}
-$k$ & Nombre de bits à transmettre (information)\\\hline
-$n$ & Nombre de bits transmis $n\geq k$
-\end{tabular}
-\end{center}
-Information (bits à transmettre)
-$$x=\begin{pmatrix}
-x_{k-1} &
-x_{k-2} &
-\cdots &
-x_1 &
-x_0
-\end{pmatrix}\in \mathbb{R}^{1\times k}$$
+\subfile{codage_canal}
 
-$$G_S=\begin{pmatrix}
-\textcolor{RoyalBlue}{I_k} & \textcolor{OrangeRed}{P}
-\end{pmatrix}=
-\left(\begin{array}{cccc|cccc}
-\textcolor{RoyalBlue}{1} & \textcolor{RoyalBlue}{0} & \cdots & \textcolor{RoyalBlue}{0} & \textcolor{OrangeRed}{x} & \cdots & \textcolor{OrangeRed}{x}\\
-\textcolor{RoyalBlue}{0} & \textcolor{RoyalBlue}{1} & \cdots & \textcolor{RoyalBlue}{0} & \textcolor{OrangeRed}{x} & \cdots & \textcolor{OrangeRed}{x}\\
-\vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
-\textcolor{RoyalBlue}{0} & \textcolor{RoyalBlue}{0} & \cdots & \textcolor{RoyalBlue}{1} & \textcolor{OrangeRed}{x} & \cdots & \textcolor{OrangeRed}{x}
-\end{array}\right)\in\mathbb{R}^{k\times n}$$
-$$H_s=\begin{pmatrix}
-\textcolor{OrangeRed}{P^{T}} & \textcolor{RoyalBlue}{I_{n-k}}
-\end{pmatrix}\in\mathbb{R}^{n-k\times n}$$
-Encodage :
-$$y=(xG_S)\bmod 2$$
-Vérification (syndrome):
-$$S=(yH_S^T)\bmod 2\quad \begin{cases}
-=0 &\longrightarrow \text{ ok}\\
-\neq 0 & \longrightarrow \text{ erreur}
-\end{cases}$$
-Décodage :
-$$\hat{x}=y[0:k-1]$$
-
-
-Propriétés
-$$G_SH_S^T=0$$
 
 
 
