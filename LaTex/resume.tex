@@ -60,11 +60,15 @@ $$\frac{E_b}{N_0}=B\frac{2^{\frac{C}{B}-1}}{R}$$
 \subsection{Autres}
 $$\SI{1}{\watt}=\SI{30}{\deci\bel m}$$
 \subfile{codage_canal}
-
-
-
-
-
-
+\end{multicols}
+\begin{multicols}{2}
+\section{Algorithme de Viterbi (décodage)}
+Soit le code reçu 00 11 10 01 11 11 11
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\columnwidth]{Viterbi.pdf}
+\end{figure}
+Le code corrigé est donc
+00 11 10 \textcolor{OrangeRed}{1}1 11 1\textcolor{OrangeRed}{0} 11. Qui correspond à la séquence 0100100 (le message est \textcolor{RoyalBlue}{01001}, les deux derniers bits sont le vidage de la mémoire).
 \end{multicols}
 \end{document}

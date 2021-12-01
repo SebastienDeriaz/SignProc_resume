@@ -20,7 +20,7 @@ x_{k-2} &
 x_1 &
 x_0
 \end{pmatrix}\in \mathbb{R}^{1\times k}$$
-
+Matrice systématique (identité à gauche).
 $$G_S=\begin{pmatrix}
 \textcolor{RoyalBlue}{I_k} & \textcolor{OrangeRed}{P}
 \end{pmatrix}=
@@ -33,26 +33,35 @@ $$G_S=\begin{pmatrix}
 $$H_s=\begin{pmatrix}
 \textcolor{OrangeRed}{P^{T}} & \textcolor{RoyalBlue}{I_{n-k}}
 \end{pmatrix}\in\mathbb{R}^{n-k\times n}$$
-Encodage :
-$$y=(xG_S)\bmod 2$$
-Vérification (syndrome):
-$$S=(yH_S^T)\bmod 2\quad \begin{cases}
-=0 &\longrightarrow \text{ ok}\\
-\neq 0 & \longrightarrow \text{ erreur}
-\end{cases}$$
-Décodage :
-$$\hat{x}=y[0:k-1]$$
-
-
-Propriétés
+\subsection{Propriétés}
 $$G_SH_S^T=0$$
 \subsection{Codes linéaires}
 La somme de deux codes valides donne un nouveau code valide
 \subsection{Codes cycliques}
 Un décalage vers la gauche ou vers la droite donne un autre code valide.\\
 Un décalage d'un mot-code de longueur $n$ dans $\mathbb{R}_n[X]$ est similaire à une multiplication par $X$
-\subsection{Générateur}
-Un générateur permet, par des décalages cycliques et des sommes d'obtenir tous les mots-code.
+\subsubsection{Générateur}
+Un générateur permet, par des décalages cycliques et des sommes d'obtenir tous les mots-code.\\
+Pour trouver un générateur
+\subsubsection{Encodage}
+Encodage systématique :
+$$x\xrightarrow{\text{encodage}} xX^{n-k}+\text{reste}\left(\frac{xX^{n-k}}{g(x)}\right)=y$$
+Encodage "standard" :
+$$x\xrightarrow{\text{encodage}} xg(x)$$
+\subsubsection{Vérification}
+On va simplement chercher à savoir si le message est correct ou non.\\
+Vérification systématique (on vérifie simplement que le message soit égal au reste, comme pour l'encodage)
+$$y[0:k] == \text{reste}\left(\frac{y[0:k]X^{n-k}}{g(x)}\right)$$
+Vérification "standard"
+$$s(x)=e(x)=\frac{y}{g(x)}\qquad s(x)=0\longrightarrow\text{ ok}$$
+\subsubsection{Correction d'erreurs}
+On va utiliser une matrice de contrôle (typiquement pour les codes BCH) qui va indiquer la position de(s) erreur(s)
+\subsubsection{Décodage}
+Dans le cas où le message est correct, on va effectuer le décodage.\\
+Décodage systématique (on récupère simplement les bits dans le message tels-quels):
+$$\hat{x}=y[0:k]$$
+Décodage "standard" :
+$$\hat{x}=\frac{y}{g(x)}$$
 \subsection{Générateur $\leftrightarrow$ matrice}
 On peut créer la matrice en effectuant des décalages cycliques du générateur $g(x)$
 $$\underset{k\times n}{\begin{pmatrix}
@@ -60,5 +69,8 @@ g_0 & g_1 & \cdots & g_{n-k} & 0 & 0\\
 0 & g_0 & g_1 & \cdots & g_{n-k} & 0\\
 0 & 0 & g_0 & g_1 & \cdots & g_{n-k}\\
 \end{pmatrix}}$$
-Avec le nombre de lignes correspondant à la longueur du message. Cette matrice n'est pas systématique. Il faut la manipuler si on veut obtenir la version systématique.
+Avec le nombre de lignes correspondant à la longueur du message. Cette matrice n'est pas systématique. Il faut la manipuler si on veut obtenir la version systématique.\\
+On effectue ensuite des combinaisons linéaires sur les lignes pour obtenir la matrice systématique.
+\subsection{Codage convolutionnel}
+
 \end{document}
