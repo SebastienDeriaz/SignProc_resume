@@ -33,8 +33,17 @@ $$G_S=\begin{pmatrix}
 $$H_s=\begin{pmatrix}
 \textcolor{OrangeRed}{P^{T}} & \textcolor{RoyalBlue}{I_{n-k}}
 \end{pmatrix}\in\mathbb{R}^{n-k\times n}$$
+Capacité de détection d'erreurs : $d_{min}-1$\\
+Capacité de correction d'erreurs : $\left\lfloor\frac{d_{min}-1}{2}\right\rfloor$
+
+
 \subsection{Propriétés}
 $$G_SH_S^T=0$$
+\subsection{Codes polynomiaux}
+\begin{enumerate}
+\item Souvent linéaires (+ parfois cycliques)
+\item Générateur rarement systématique (on peut utiliser un encodage systématique si le générateur ne l'est pas)
+\end{enumerate}
 \subsection{Codes linéaires}
 La somme de deux codes valides donne un nouveau code valide
 \subsection{Codes cycliques}
@@ -42,7 +51,7 @@ Un décalage vers la gauche ou vers la droite donne un autre code valide.\\
 Un décalage d'un mot-code de longueur $n$ dans $\mathbb{R}_n[X]$ est similaire à une multiplication par $X$
 \subsubsection{Générateur}
 Un générateur permet, par des décalages cycliques et des sommes d'obtenir tous les mots-code.\\
-Pour trouver un générateur
+Si le générateur divise $(1+X^n)$ alors le code est cyclique
 \subsubsection{Encodage}
 Encodage systématique :
 $$x\xrightarrow{\text{encodage}} xX^{n-k}+\text{reste}\left(\frac{xX^{n-k}}{g(x)}\right)=y$$

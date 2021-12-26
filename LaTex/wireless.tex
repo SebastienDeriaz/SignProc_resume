@@ -1,0 +1,18 @@
+\documentclass[resume]{subfiles}
+
+
+\begin{document}
+\section{Wireless}
+\section{Transmission sans-fil}
+\subsection{Formule de Friis}
+Dans un cas idéal, sans trajets multiples
+$$\frac{P_r}{P_t}=G_tG_r\left(\frac{\lambda}{4\pi R}\right)^2$$
+en \si{\deci\bel} : 
+$$\underbrace{(P_r)_{\si{\deci\bel}}-(P_t)_{\si{\deci\bel}}}_{Att_{\si{\deci\bel}}}=(G_t)_{\si{\deci\bel}}+(G_r)_{\si{\deci\bel}}+20\log_{10}\left(\frac{\lambda}{4\pi R}\right)$$
+$$(x)_{\si{\deci\bel}}=10\log_{10}(x)$$
+A noter que la puissance de 2 a été enlevée et le $10\log$ remplacé par $20\log$
+\subsection{Capacité du canal et efficacité spectrale}
+$$\frac{C}{B}=\log_2\left(1+\frac{S}{N}\right)=\log_2\left(1+\frac{E_bR}{N_0B}\right)$$
+La limite est donnée par
+$$\frac{E_b}{N_0}=B\frac{2^{\frac{C}{B}-1}}{R}$$
+\end{document}
