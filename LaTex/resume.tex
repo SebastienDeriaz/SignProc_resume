@@ -14,8 +14,8 @@
 \usepackage[dvipsnames]{xcolor}
 
 \fancyhead[CO]{Signproc - Résumé 2021}
-\fancyhead[LE,RO]{}
-\fancyfoot[LE,RO]{}
+\fancyhead[L,RO]{}
+\fancyfoot[L,RO]{}
 
 \newenvironment{amatrix}[1]{%
   \left(\begin{array}{@{}*{#1}{c}|c@{}}
@@ -25,12 +25,17 @@
 
 \begin{document}
 \begin{multicols}{3}
+\subfile{signaux_discrets}
+\subfile{algebre_lineaire}
+\subfile{aleatoire}
+\subfile{systemes_communication}
 \subfile{source_coding}
-\subfile{codage_canal}
+\subfile{AWGN_Shannon}
 \subfile{wireless}
+\subfile{codage_canal}
+\subfile{modulations}
+\subfile{multiple_access}
+\subfile{aquisition_synchronisation}
+\end{multicols}
 \subfile{others}
-\end{multicols}
-\begin{multicols}{2}
-\subfile{big_stuff}      %<- Tout ce qui est trop grand pour tenir sur une page
-\end{multicols}
 \end{document}
