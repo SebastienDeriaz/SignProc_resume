@@ -3,6 +3,93 @@
 
 \begin{document}
 \section{Algèbre linéaire}
-
-
+\subsection{Matrices}
+$$x=\begin{bmatrix}
+x(0)\\x(1)\\\vdots\\x(N-1)
+\end{bmatrix}$$
+$$A=\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1m}\\
+a_{21} & a_{22} & \cdots & a_{2m}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n1} & a_{n2} & \cdots & a_{nm}
+\end{bmatrix}$$
+$$y(n)=h^Tx(n)=x^Th\qquad (\text{un élément à la fois})$$
+\subsubsection{Transposée hermitienne}
+$$\left(A^{H}\right)^{H}=A$$
+$$(A+B)^{H}=A^H+B^H$$
+$$(AB)^H=B^HA^H$$
+\subsubsection{Rang}
+Le rang d'une matrice $A$ donne le nombre de colonnes linéairement indépendantes qu'elle contient. Si le rang est \textbf{plein} alors
+$$\text{rank}(A)=\rho(A)=n$$
+\subsubsection{Inverse}
+$$(AB)^{-1}=A^{-1}B^{-1}$$
+$$(A^{H})^{-1}=(A^{-1})^{H}$$
+Inversible si $\det(A)\neq 0$
+\subsubsection{Déterminant}
+$$\det(AB)=\det(A)\det(B)$$
+$$\det(A^{T})=\det(A)$$
+$$\det(\alpha A)=\alpha^{n}\det(A)$$
+$$\det(A^{-1})=\frac{1}{\det(A)}$$
+\subsubsection{Pseudo-inverse}
+$$A\in \mathbb{R}_{n\times m}\qquad n<m$$
+$$A^{+}=A^{H}(AA^{H})^{-1}$$
+Permet de calculer la solution minimale
+$$x=A^{+}b$$
+\subsubsection{Norme}
+$$\abs{\abs{x}}_1=\sum_{i=1}^{N}\abs{x_i}$$
+$$\abs{\abs{x}}_2=\sqrt{\sum_{i=1}^{N}\abs{x_i}^2}$$
+Permet aussi de calculer la distance : $\abs{\abs{x-y}}_2$
+$$\abs{\abs{x}}_{\infty}=\max\abs{x_i}$$
+\subsubsection{Produit scalaire}
+$$\langle a,b \rangle = a\cdot b=\abs{\abs{a}}\abs{\abs{b}}\cos\theta$$
+\subsubsection{Espace vectoriel}
+$$\bold{v}=\sum_{i=1}^{N}\alpha_i\bold{v}_i$$
+Si la base est orthogonale et si on utilise autant de coefficients qu'il y a de points dans le signal, alors la reconstruction est parfaite.
+\subsubsection{Projection}
+$$\hat{b}=A^{+}x_0=P_Ab$$
+Par exemple
+$$\begin{bmatrix}
+2 & 1\\
+1 & 2\\
+1 & 2
+\end{bmatrix}\begin{bmatrix}
+x_1\\x_2
+\end{bmatrix}=\begin{bmatrix}
+1\\1\\1
+\end{bmatrix}$$
+$$A^{H}A=\begin{bmatrix}
+6 & 5\\5 & 6
+\end{bmatrix}$$
+Solution des moindres carrés donnée par
+$$x_0=(A^{H})^{-1}A^{H}b=\frac{1}{11}\begin{bmatrix}
+6 & -5\\-5 & 6
+\end{bmatrix}\begin{bmatrix}
+2 & 1 & 1\\
+1 & 2 & 1
+\end{bmatrix}\begin{bmatrix}
+1\\1\\1
+\end{bmatrix}=\frac{4}{11}\begin{bmatrix}
+1\\1
+\end{bmatrix}$$
+$$e=b-Ax_0=\frac{1}{11}\begin{bmatrix}
+-1\\-1\\3
+\end{bmatrix}$$
+\subsubsection{Valeurs propres}
+$$Av=\lambda v$$
+Pour trouver les valeurs propres, on cherche les racines de
+$$p(\lambda)=\det(A-\lambda I)=0$$
+$$V=\begin{bmatrix}
+v_1 & v_2 & \cdots & v_n
+\end{bmatrix}\qquad \Lambda=\text{diag}\lbrace \lambda_1, \lambda_2, ...,\lambda_n\rbrace$$
+$$AV=V\Lambda$$
+\subsection{Approximation}
+Autant de lignes que de points et autant de colonnes que de fonctions de base
+$$A=\begin{bmatrix}
+1 & x_{11} & \sin(2\pi x_{11}) & \cos(2\pi x_{12})\\
+1 & x_{11} & \sin(2\pi x_{11}) & \cos(2\pi x_{12})\\
+\vdots & \vdots & \vdots & \vdots\\
+1 & x_{1n} & \sin(2\pi x_{1n}) & \cos(2\pi x_{1n})
+\end{bmatrix}$$
+Vecteur au sens des moindres carrés :
+$$\Theta=(A^{T}A)^{-1}A^{T}b=A^{+}b$$
 \end{document}

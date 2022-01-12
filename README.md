@@ -2,7 +2,67 @@
 
 ## Modalités
 
+5 pages de résumé recto-verso. Pas d'exercices dans le résumé
+
 ### Contenu
+
+## Rappel sur les examens (12.01.2022)
+
+Ce qu'il n'y a pas :
+
+- Algebre linéare
+  - Lemme d'inversion
+  - Normes L1 pour matrices
+  - Valeurs propres et vecteurs propres
+  - Théorème spéctral
+  - Matrices mal conditionnées (et tout ce qui suit)
+- Aléatoire
+  - Variables conjointes
+  - estimation par les moindres carrés
+  - Meilleure estimation
+  - Wide stationary process
+  - Ergodicité
+  - Power spectrum (a partir de 51)
+
+Ce qu'il y a:
+
+- Signaux et systèmes (introduction)
+  - Tout
+  - Tranformée en $z$
+  - Filtres
+  - DFT / FFT
+- Algebre linéaires
+  - Systèmes sur-déterminés avec moindres carrés
+  - Poser les équations d'un problème (comme l'ellipse)
+  - Formes spéciales de matrices (diagonales, etc...)
+- Aléatoire
+  - Variables
+  - mapping
+  - distribution et densité
+  - espérence et variance (et espérence d'un fonction de variable aléatoire)
+  - corrélation et covariance
+  - orthogonalité des variables aléatoires
+  - distribution gaussienne
+  - Biais et consistance (important)
+  - estimateurs (P.25-26 ?)
+  - Processus aléatoires (ensemble de variables aléatoires)
+  - moyennes d'ensembles
+  - autocorrélations
+  - Processus gaussien (savoir ce que c'est mais pas les calculs)
+  - Savoir ce qu'est un processus stationnaire
+  - matrice d'autocorrelation
+  - Bruit blanc
+- AWGN et Shannon
+  - Débit, limites
+  - Bruit
+  - Sensibilité
+  - BER
+  - un peut tout
+
+### Exercices à savoir
+
+- Aléatoire
+  - 3.3
 
 ## Liste des sujets
 

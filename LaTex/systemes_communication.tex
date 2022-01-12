@@ -3,4 +3,21 @@
 
 \begin{document}
 \section{Systèmes de communication}
+Possibilité d'effectuer une compression importante pour des données prévisibles / redondantes. Deux caractéristiques de l'information :
+\begin{enumerate}
+\item Meaning
+\item Suprise
+\end{enumerate}
+Avec $E$ certain, $I(E)=0$
+$$p(E)=1\longrightarrow I(E)=0$$
+Avec un événement peu probable $F$, $I(F)>0$.\\
+Pour deux événements non-liés :
+$$I(E_1\cap E_2)=I(E_1)+I(E_2)$$
+$$\boxed{I(E)=-K\log_{a}(P(E))}$$
+$a$ vaut souvent 2 (binaire).
+\subsection{Exemple équiprobable}
+$$p(A)=\frac{1}{2}\quad p(B)=\frac{1}{2}\quad p(C)=\frac{1}{8}\quad p(D)=\frac{1}{8}$$
+\subsubsection{Entropie $H$}
+$$H=\frac{1}{2}1+\frac{1}{2}2+\frac{1}{8}3+\frac{1}{8}3=\frac{7}{4}\ \text{bits par symbole}$$
+$H=0$ pas d'information (certain), $H=H_{max}$ tous les symboles ont la même probabilité.
 \end{document}
