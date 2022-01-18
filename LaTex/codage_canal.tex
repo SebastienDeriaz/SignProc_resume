@@ -3,13 +3,16 @@
 
 \begin{document}
 \section{Codage de canal}
+$$(n,k,d)_q$$
+Lorsque la base est $q=2$ on ne l'affiche pas
 \begin{center}
 \includegraphics[scale=1,page=1]{drwg_1.pdf}
 \end{center}
 \begin{center}
 \begin{tabular}{c|l}
-$k$ & Nombre de bits à transmettre (information)\\\hline
-$n$ & Nombre de bits transmis $n\geq k$
+$k$ & Nombre de bits à transmettre (information)\\
+$n$ & Nombre de bits transmis $n\geq k$\\
+$d$ & Distance de Hamming
 \end{tabular}
 \end{center}
 Information (bits à transmettre)
@@ -47,16 +50,18 @@ $$G_SH_S^T=0$$
 \subsection{Codes linéaires}
 La somme de deux codes valides donne un nouveau code valide
 \subsection{Codes cycliques}
-Un décalage vers la gauche ou vers la droite donne un autre code valide.\\
+Un décalage vers la gauche $\textcolor{OrangeRed}{0}011\longrightarrow 011\textcolor{OrangeRed}{0}$ ou vers la droite $001\textcolor{OrangeRed}{1}\longrightarrow \textcolor{OrangeRed}{1}001$ donne un autre code valide.\\
 Un décalage d'un mot-code de longueur $n$ dans $\mathbb{R}_n[X]$ est similaire à une multiplication par $X$
 \subsubsection{Générateur}
 Un générateur permet, par des décalages cycliques et des sommes d'obtenir tous les mots-code.\\
 Si le générateur divise $(1+X^n)$ alors le code est cyclique
 \subsubsection{Encodage}
-Encodage systématique :
+On veut encoder un message $x$ et obtenir le mot-code $y$
+\paragraph{Encodage systématique} :
 $$x\xrightarrow{\text{encodage}} xX^{n-k}+\text{reste}\left(\frac{xX^{n-k}}{g(x)}\right)=y$$
-Encodage "standard" :
-$$x\xrightarrow{\text{encodage}} xg(x)$$
+Les bits du message se retrouvent au début du mot-code
+\paragraph{Encodage "standard"} :
+$$x\xrightarrow{\text{encodage}} xg(x)=y$$
 \subsubsection{Vérification}
 On va simplement chercher à savoir si le message est correct ou non.\\
 Vérification systématique (on vérifie simplement que le message soit égal au reste, comme pour l'encodage)

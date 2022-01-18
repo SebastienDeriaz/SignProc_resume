@@ -11,12 +11,14 @@
 
 \begin{document}
 \begin{tabular}{c}
-
-Entrée : AABABBBABAABABBBABBABB\\
-Ségmentation : A$|$AB$|$ABB$|$B$|$ABA$|$ABAB$|$BB$|$ABBA$|$BB\hspace*{8.5pt}\\
-\\\\
+\begin{tabular}{rc}
+Entrée & AABABBBABAABABBBABBABB\\
+ & $\downarrow$\\
+Ségmentation & AA$|$BA$|$BB$|$BAB$|$AAB$|$AB$|$BBA$|$BBAB$|$B\hspace*{8.5pt}\\
+ & $\downarrow$
+\end{tabular}\\
 \renewcommand{\arraystretch}{1.5}
-\begin{tabular}{l|rrrrrrrrr}
+\begin{tabular}{l|rr|rrrrrrrrr}
 Position (Adresse) & 
 \inode{A}{1} &
 \inode{B}{2} &
@@ -26,45 +28,56 @@ Position (Adresse) &
 \inode{F}{6} &
 \inode{G}{7} &
 \inode{H}{8} &
-\inode{I}{9}\\\hline
+\inode{I}{9} &
+\inode{J}{10} &
+\inode{K}{11} \\\hline
 Séquence &
-\inode[OrangeRed]{1A}{A} &
-\inode[]{1B}{A}\inode[OrangeRed]{1C}{B} &
-\inode[]{1D}{AB}\inode[OrangeRed]{1E}{B} &
-\inode[OrangeRed]{1F}{B} &
-\inode[]{1G}{AB}\inode[OrangeRed]{1H}{A} &
-\inode[]{1I}{ABA}\inode[OrangeRed]{1J}{B} &
-\inode[]{1K}{B}\inode[OrangeRed]{1L}{B} &
-\inode[]{1M}{ABB}\inode[OrangeRed]{1N}{A} &
-\inode[]{1O}{B}\inode[OrangeRed]{1P}{B}\\\hline
+\inode[ForestGreen]{1A}{A} &
+\inode[ForestGreen]{1B}{B} &
+\inode[]{1C}{A}\inode[OrangeRed]{1D}{A} &
+\inode[]{1E}{B}\inode[OrangeRed]{1F}{A} &
+\inode[]{1G}{B}\inode[OrangeRed]{1H}{B} &
+\inode[]{1I}{BA}\inode[OrangeRed]{1J}{B} &
+\inode[]{1K}{AA}\inode[OrangeRed]{1L}{B} &
+\inode[]{1M}{A}\inode[OrangeRed]{1N}{B} &
+\inode[]{1O}{BB}\inode[OrangeRed]{1P}{A} &
+\inode[]{1Q}{BBA}\inode[OrangeRed]{1R}{B}&
+\inode[]{1R}{B}\\\hline
 Représentation &
-\inode[OrangeRed]{2A}{A} &
-\inode[]{2B}{1}\inode[OrangeRed]{2C}{B} &
-\inode[]{2D}{2}\inode[OrangeRed]{2E}{B} &
-\inode[OrangeRed]{2F}{B} &
-\inode[]{2G}{2}\inode[OrangeRed]{2H}{A} &
-\inode[]{2I}{5}\inode[OrangeRed]{2J}{B} &
-\inode[]{2K}{4}\inode[OrangeRed]{2L}{B} &
-\inode[]{2M}{3}\inode[OrangeRed]{2N}{A} &
-\inode[]{2O}{7}\ ~~\\\hline
+&
+&
+\inode[RoyalBlue]{2B}{1}\inode[OrangeRed]{2C}{A} &
+\inode[RoyalBlue]{2D}{2}\inode[OrangeRed]{2E}{A} &
+\inode[RoyalBlue]{2F}{2}\inode[OrangeRed]{2E}{B} &
+\inode[RoyalBlue]{2G}{4}\inode[OrangeRed]{2H}{B} &
+\inode[RoyalBlue]{2I}{3}\inode[OrangeRed]{2J}{B} &
+\inode[RoyalBlue]{2K}{1}\inode[OrangeRed]{2L}{B} &
+\inode[RoyalBlue]{2M}{5}\inode[OrangeRed]{2N}{A} &
+\inode[RoyalBlue]{2O}{9}\inode[OrangeRed]{2P}{B} & 
+\inode[RoyalBlue]{2Q}{2}\\\hline
 Code &
-\inode[OrangeRed]{3A}{0} &
-\inode[]{3B}{1}\inode[OrangeRed]{3C}{1} &
-\inode[]{3D}{10}\inode[OrangeRed]{3E}{1} &
-\inode[]{3F}{00}\inode[OrangeRed]{3G}{1} &
-\inode[]{3H}{010}\inode[OrangeRed]{3I}{0} &
-\inode[]{3J}{101}\inode[OrangeRed]{3K}{1} &
-\inode[]{3L}{100}\inode[OrangeRed]{3M}{1} &
-\inode[]{3N}{011}\inode[OrangeRed]{3O}{0} &
-\inode[]{3P}{0111}
+&
+&
+\inode[RoyalBlue]{3B}{0001}\inode[OrangeRed]{3C}{0} &
+\inode[RoyalBlue]{3D}{0010}\inode[OrangeRed]{3E}{0} &
+\inode[RoyalBlue]{3F}{0010}\inode[OrangeRed]{3G}{1} &
+\inode[RoyalBlue]{3H}{0100}\inode[OrangeRed]{3I}{1} &
+\inode[RoyalBlue]{3J}{0011}\inode[OrangeRed]{3K}{1} &
+\inode[RoyalBlue]{3L}{0001}\inode[OrangeRed]{3M}{1} &
+\inode[RoyalBlue]{3N}{0101}\inode[OrangeRed]{3O}{0} &
+\inode[RoyalBlue]{3P}{1001}\inode[OrangeRed]{3Q}{1} &
+\inode[RoyalBlue]{3R}{00010}
 \end{tabular}
 \end{tabular}
 \begin{tikzpicture}[remember picture,overlay, thin,blend mode=multiply,gray]
+\draw[->] (A) -- (2B);
 \draw[->] (B) -- (2D);
-\draw[->] (B) -- (2G);
-\draw[->] (E) -- (2I);
-\draw[->] (D) -- (2K);
-\draw[->] (C) -- (2M);
-\draw[->] (G) -- (2O);
+\draw[->] (B) -- (2F);
+\draw[->] (D) -- (2G);
+\draw[->] (C) -- (2I);
+\draw[->] (A) to[bend left=20] (2K);
+\draw[->] (E) -- (2M);
+\draw[->] (I) -- (2O);
+\draw[->] (B) to[bend right=20] (2Q);
 \end{tikzpicture}
 \end{document}

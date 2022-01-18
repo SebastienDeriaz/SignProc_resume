@@ -8,9 +8,52 @@ Aucune connaissance de la source, son rôle est de minimiser la redondance
 Symboles $\lbrace a_0, a_1, a_2, \cdots, a_{n-1}\rbrace$\\
 Probabilités : $\lbrace P(a_0), P(a_1), P(a_2), \cdots, P(a_{n-1})\rbrace$
 Information contenue dans un message :
-$$I(a_k)=-\log_2(P(a_k))$$
+$$I(a_k)=-\log_2(P(a_k))\qquad [\text{bits}]$$
 Entropie de la source (moyenne du contenu d'information):
-$$H=-\sum_{i=0}^{n-1}P(a_i)I(a_i)$$
+$$H=\sum_{i=0}^{n-1}P(a_i)I(a_i)$$
+\subsection{Méthodes de codage}
+\begin{enumerate}
+\item Longueur fixe (binaire "standard")
+\end{enumerate}
+\subsection{Décodage}
+\paragraph{Décodage instantané} : Aucun mot-code n'est prefix d'un autre
+\paragraph{Inégalité de Kraft-McMillan}
+$$\sum_{i=0}^{n-1}2^{-\text{longueur}(s_i)}\neq 1\longrightarrow \text{Pas instantané}$$
+Si $=1$ cela ne veut pas forcément dire que le code est instantané
+\subsection{Huffman}
+Attention au \textcolor{OrangeRed}{1} en \textbf{haut} ou en \textbf{bas} (les exemples sont données avec le \textcolor{OrangeRed}{1} en haut) (les deux sont utilisés dans le cours). Ensuite on construit l'arbre avec le nouvel élément "en haut" ou "en bas" (précisé dans l'exo en principe).\\
+\subsubsection{Longueur moyenne}
+$$\overline{l}=\sum P(a_k)\cdot \text{longueur du code}(a_k)$$
+\subsubsection{Variance de la longueur}
+$$\text{var}=\sigma^2=\sum P(a_k)\cdot \left(\text{longueur du code}(a_k)-\overline{l}\right)^2$$
+Si on doit départager deux codes, une variance plus faible est meilleure
+\subsubsection{Huffman avec nouvel élément en haut}
+\begin{center}
+\begin{tabular}{ccccc}
+a & b & c & d & e\\
+0.1 & 0.2 & 0.2 & 0.4 & 0.1
+\end{tabular}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.75,page=1]{drwg_4.pdf}
+\\
+\begin{tabular}{ccccc}
+a & b & c & d & e\\
+101 & 01 & 00 & 11 & 100
+\end{tabular}
+\end{center}
+
+\subsubsection{Huffman avec nouvel élément en bas}
+\begin{center}
+\includegraphics[scale=0.75,page=2]{drwg_4.pdf}\\
+\begin{tabular}{ccccc}
+a & b & c & d & e\\
+1101 & 10 & 111 & 0 & 1100
+\end{tabular}
+\end{center}
+
+
+
 \subsection{Lempel Ziv}
 \begin{figure}[H]
 \centering
