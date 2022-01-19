@@ -3,5 +3,18 @@
 
 \begin{document}
 \section{AWGN et Shannon}
+$$C=\frac{R}{\log_2(M)}$$
+\subsection{Capacité du canal et efficacité spectrale}
+\paragraph{Sans bruit}
+$$\text{eff. spec.}=\frac{C}{B}=2\log_2(M)$$
+\paragraph{Avec bruit}
+$$\text{eff. spec.}=\frac{C}{B}=\log_2\left(1+\frac{S}{N}\right)=\log_2\left(1+\frac{E_bR}{N_0B}\right)$$
+La limite est donnée par
+$$\frac{E_b}{N_0}=B\frac{2^{\frac{C}{B}-1}}{R}$$
+\subsubsection{Capacité maximale du canal (pas de bruit)}
+$$C_\text{max}=2B\qquad R_\text{max}=2B\log_2(M)$$
+
+\subsection{BER}
+$$\text{BER}=\frac{1}{2}\text{erfc}\left(\sqrt{\frac{E_b}{N_0}}\right)$$
 
 \end{document}

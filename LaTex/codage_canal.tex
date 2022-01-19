@@ -15,15 +15,27 @@ $n$ & Nombre de bits transmis $n\geq k$\\
 $d$ & Distance de Hamming
 \end{tabular}
 \end{center}
-Information (bits à transmettre)
+\paragraph{Message / information}
 $$x=\begin{pmatrix}
-x_{k-1} &
-x_{k-2} &
-\cdots &
-x_1 &
-x_0
+x_0 & x_1 & \cdots & x_{n-1}
 \end{pmatrix}\in \mathbb{R}^{1\times k}$$
-Matrice systématique (identité à gauche).
+\paragraph{Mot-code reçu}
+$$y=\begin{pmatrix}
+y_0 & y_1 & \cdots & y_{n-1}
+\end{pmatrix}\in \mathbb{R}^{1\times k}$$
+Capacité de détection d'erreurs : $d_{min}-1$\\
+Capacité de correction d'erreurs : $\left\lfloor\frac{d_{min}-1}{2}\right\rfloor$
+\subsection{Matrice de génération}
+Pour déterminer tous les mots-codes, évaluer toutes les entrées possibles.
+\subsubsection{Matrice non-systématique}
+Pour passer à la matrice systématique on a le droit de
+\begin{itemize}
+\item Faire des combinaisons linéaires des lignes
+\item Permuter des lignes
+\end{itemize}
+On ne peut pas faire de permutations sur les colonnes.
+\subsubsection{Matrice systématique}
+La matrice identité se retrouve à gauche
 $$G_S=\begin{pmatrix}
 \textcolor{RoyalBlue}{I_k} & \textcolor{OrangeRed}{P}
 \end{pmatrix}=
@@ -33,11 +45,18 @@ $$G_S=\begin{pmatrix}
 \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
 \textcolor{RoyalBlue}{0} & \textcolor{RoyalBlue}{0} & \cdots & \textcolor{RoyalBlue}{1} & \textcolor{OrangeRed}{x} & \cdots & \textcolor{OrangeRed}{x}
 \end{array}\right)\in\mathbb{R}^{k\times n}$$
+Les $\textcolor{OrangeRed}{x}$ sont des 0 ou 1 en fonction de $P$ (à déterminer pour chaque problème).\\
+La forme systématique place les bits au début du mot-code, ce qui permet de décoder très facilement.\\
+Pour construire la matrice systématique on peut simplement placer des mots-codes donnés sur les lignes de $G_S$ afin d'avoir la matrice identité au début de $G_S$ (fonctionne car 100 va donner la première ligne de $G_S$, donc la ligne doit être un mot-code).
+\subsection{Matrice de vérification}
 $$H_s=\begin{pmatrix}
 \textcolor{OrangeRed}{P^{T}} & \textcolor{RoyalBlue}{I_{n-k}}
 \end{pmatrix}\in\mathbb{R}^{n-k\times n}$$
-Capacité de détection d'erreurs : $d_{min}-1$\\
-Capacité de correction d'erreurs : $\left\lfloor\frac{d_{min}-1}{2}\right\rfloor$
+\subsubsection{Syndrome}
+$$S=yH_S^T$$
+Si le syndrome est différent de 0, sa valeur donne la position de l'erreur (si le nombre d'erreurs à corriger ne dépasse pas la limite de correction).
+
+
 
 
 \subsection{Propriétés}

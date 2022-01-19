@@ -11,10 +11,32 @@ Information contenue dans un message :
 $$I(a_k)=-\log_2(P(a_k))\qquad [\text{bits}]$$
 Entropie de la source (moyenne du contenu d'information):
 $$H=\sum_{i=0}^{n-1}P(a_i)I(a_i)$$
+De la source $\to$ ne pas prendre en compte si on envoie $x$ symboles. On parle uniquement de la source
+\subsubsection{Combinaison de sources}
+Si une source $S_3$ fait un choix entre $\textcolor{RoyalBlue}{S_1}$ et $\textcolor{OrangeRed}{S_2}$ (avec $\alpha$ la chance de $\textcolor{RoyalBlue}{S_1}$). L'entropie sera
+$$\textcolor{ForestGreen}{H_3}=\alpha\Big(\textcolor{RoyalBlue}{H_1}-\log_2\left(\alpha\right)\Big)+(1-\alpha)\Big(\textcolor{OrangeRed}{H_2}-\log_2\left(1-\alpha\right)\Big)$$
+Pour construire l'arbre, on multiplie les probabilités des symboles de $S_1$ par $\alpha$ et les probabilités des symboles de $S_2$ par $(1-\alpha)$
 \subsection{Méthodes de codage}
 \begin{enumerate}
-\item Longueur fixe (binaire "standard")
+\item Longueur fixe (comptage binaire "standard")
+\item Optimal (100\% efficace) pour puissances de 2 ($\frac{1}{2}$, $\frac{1}{4}$, ..., $2\times \frac{1}{2^{n-1}}$)
+\begin{center}
+\begin{tabular}{ccrr}
+Symbole & prob & Code A & Code B\\\hline
+$s_0$ & $1/2$ & 1 & 0\\
+$s_1$ & $1/4$ & 01 & 10\\
+$s_2$ & $1/8$ & 001 & 110\\
+$\vdots$ & $\vdots$& $\vdots$&$\vdots$ \\
+$s_{n-2}$ & $1/2^{n-1}$ & 00...01 & 11...10\\
+$s_{n-1}$ & $1/2^{n-1}$ & 00...00 & 11...11\\
+\end{tabular}
+\end{center}
+Les deux codes (A et B) sont valides
 \end{enumerate}
+\subsection{Efficacité du code}
+Entropie divisée par la longueur moyenne (déterminée à partir de la méthode de codage)
+$$\frac{H}{\overline{l}}$$
+Si $n$ symboles sont combinés, on divise par $n$ la longueur moyenne (pour connaître la longueur moyenne correspondant à un symbole).
 \subsection{Décodage}
 \paragraph{Décodage instantané} : Aucun mot-code n'est prefix d'un autre
 \paragraph{Inégalité de Kraft-McMillan}
@@ -59,4 +81,6 @@ a & b & c & d & e\\
 \centering
 \includegraphics[width=\columnwidth]{drwg_0.pdf}
 \end{figure}
+\paragraph{Taux de compression} :
+$$\frac{L_\text{initiale}-L_\text{finale}}{L_\text{initiale}}\ [\si{\percent}]$$
 \end{document}
