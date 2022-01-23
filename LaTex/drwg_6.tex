@@ -1,0 +1,42 @@
+\documentclass[dvipsnames]{standalone}
+
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usetikzlibrary{positioning, calc}
+\usetikzlibrary{shapes.geometric}
+
+
+\usetikzlibrary{tikzmark}
+\usepackage{ifthen}
+
+\newcommand{\inode}[3][]{%
+\ifthenelse {\equal {#1} {}}%
+{\tikz[inner sep=0pt,baseline,outer sep=0pt,remember picture]\node[anchor=base](#2){#3};}%
+{\tikz[baseline,remember picture]\node[anchor=base,outer xsep=0pt,inner xsep=0pt,color=#1](#2){#3};}}
+
+\begin{document}
+$s=yH^{T}=y\underset{\textcolor{Gray}{\text{MSB\qquad LSB}}}{\begin{pmatrix}1 & 0 & 0\\0 & 1 & 0\\\inode[]{A}{1} & \inode[]{mid}{1} & \inode[]{B}{0}\\0 & 0 & 1\\1 & 0 & 1\\ 0 & 1 & 1\\ 1 & 1 & 1\end{pmatrix}}=\underset{\textcolor{Gray}{\text{MSB}}}{\big(}\inode[]{C}{0}\ 1\ \inode{D}{1}\underset{\textcolor{Gray}{\text{LSB}}}{\big)}$
+\begin{tikzpicture}[remember picture, overlay]
+
+\draw[OrangeRed] ($(C.north)+(0,0.1)$) to[bend left=10] coordinate[midway] (E) ($(D.north)+(0,0.1)$);
+
+
+\node[ellipse, thick, RoyalBlue,draw,
+    minimum width = 1.5cm, 
+    minimum height = 0.5cm] (F) at (mid) {};
+    
+    
+\draw[OrangeRed, ->] (E) to[out=90,in=0] node[pos=0.3,anchor=south] {\scriptsize $3^{\text{ème}} \text{ ligne}$}(F.east);
+
+
+
+
+\draw[RoyalBlue, thick] (F.south east) --++(0.75,-1) coordinate (G);
+\node[RoyalBlue, anchor=north west, text width=1.5cm] at (G) {\scriptsize Erreur au $6^{\text{ème}}$ bit};
+
+
+
+\end{tikzpicture}
+\end{document}
