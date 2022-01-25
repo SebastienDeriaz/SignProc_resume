@@ -3,5 +3,23 @@
 
 \begin{document}
 \section{Multiple access}
-
+\paragraph{Half-Duplex} : Envoi puis réception (souvent limités par l'envoi et la réception avec des puissances radicalement différentes)
+\paragraph{Full-Duplex} : Envoi et réception simultanés
+\subsection{Méthode de duplex}
+\paragraph{Time Division Duplex TDD} : Réception pendant un instant puis envoi pendant un autre
+\paragraph{Frequency Division Duplex FDD} : Envoi et réception sur des canaux différents (Utilisation de diplexeur, circulateur)
+\subsection{Méthodes de multiple access}
+\paragraph{Carrier Sense Multiple Access CSMA} Aussi appelé "Listen Before Talk". Utilisé dans le Wifi.
+\paragraph{Frequency Division Multiple Access FDMA} : Un utilisateur par canal de fréquence (limité en nombre d'utilisateurs et bande passante. Pas possible de profiter de toute la bande si on est seul)
+\paragraph{Time Division Multiple Access TDMA} : Temps alloué à chaque utilisateur (sensible au temps, synchronisation critique).
+\paragraph{Code Division Multiple Access CDMA} : Code orthogonal pour chaque utilisateur (pas d'espace entre les canaux, hardware plus simplet et plus robuste aux interférences. Il faut toutefois gérer la puissance de chaque utilisateur vu qu'on reçoit certains beaucoup mieux que d'autres). Multiplication par le code en entrée, correlation à la sortie. Comme on augmente le spectre au TX, on peut diminuer l'amplitude pour fonctionner à énergie constante
+\subparagraph{Walsh-Hadamard} : $2^n$ utilisateurs (et $2^n$ bits).
+\paragraph{Orthogonal Frequency Division Multiple Access OFDMA} : Canal OFDM séparé en 256 sous-canaux (répartis sur 9 blocks "RU" de 26 canaux). Chaque utilisateur utilise $x$ canaux et il y a également une répartition sur le temps.
+\paragraph{Space Division Multiple Access SDMA} : Séparation des utilisateurs en zones géographiques (interférences entre les cellules, passage d'une à l'autre).
+\subsubsection{Input / Output}
+\paragraph{Single Input Single Output SISO} : un récepteur, un émetteur $y_1=h_1x_1$
+\paragraph{Single Input Multiple Output SIMO} : un émetteur et deux récepteurs $y_1=h_1x_1$, $y_2=h_2x_2$. Pas de changement de capacité mais il y a de la diversité
+\paragraph{Multiple Input Multiple Output MISO} : Deux émetteurs et un récepteur. On doit différencier les signaux émis donc aucun gain $y_1=h_1x_1+h_2x_2$, $y_2=h_1x_2^\ast+h_2x_1^\ast$
+\paragraph{Multiple Input Multiple Output MIMO} : Deux émetteurs et deux récepteurs, on peut faire la différence entre $x_1$ et $x_2$ $y_1=h_1x_1+h_2x_2$, $y_2=h_3x_1+h_4x_2$. La capacité du canal est doublée
+\paragraph{Massive MIMO} : $N\times N$ antennes. En principe $N$ fois la capacité mais il faut que les fading soient indépendants et non-corrélés
 \end{document}

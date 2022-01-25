@@ -1,7 +1,7 @@
 \documentclass[]{article}
 
 
-\usepackage[margin=1cm,includehead,landscape]{geometry}
+\usepackage[margin=1.5cm,landscape]{geometry}
 \usepackage{fancyhdr}
 \usepackage{multicol}
 \usepackage{graphicx}
@@ -14,15 +14,19 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{physics}
 
-\fancyhead[CO]{Signproc - Résumé 2021}
-\fancyhead[L,RO]{}
-\fancyfoot[L,RO]{}
+\rhead{}
+\lhead{}
+\cfoot{}
 
 \newenvironment{amatrix}[1]{%
   \left(\begin{array}{@{}*{#1}{c}|c@{}}
 }{%
   \end{array}\right)
 }
+
+\def\bcolor{\textcolor{RubineRed}}
+\def\acolor{\textcolor{BlueViolet}}
+
 
 \begin{document}
 \begin{multicols}{3}
