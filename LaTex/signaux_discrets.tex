@@ -78,6 +78,20 @@ $$X(z)=\sum_{n=-\infty}^{+\infty}x(n)z^{n}\qquad z=re^{j\omega}$$
 \includegraphics[width=0.9\columnwidth,page=3]{drwg_2.pdf}
 \end{figure}
 Si une fréquence tombe pile sur un zéro (sur le cercle unité) alors elle sera complètement annulée. Un pôle proche du cercle unité va augmenter les fréquences proches de ce pôle.
+\subsection{Exemple}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{cc}
+$f[k]$ & $F(z)=Z(f[k])$\\\hline
+$\Delta[k]$ & $1$\\
+$\epsilon[k]$ & $\frac{z}{z-1}$\\
+$kh$ & $\frac{hz}{(z-1)^2}$\\
+$\frac{1}{2}(kh)^2$ & $\frac{h^2}{2}\frac{z(z+1)}{(z-1)^3}$\\
+$a^{kh}$ & $\frac{z}{z-a^h}$\\
+$e^{-akh}\epsilon[k]$ & $\frac{z}{z-e^{-at}}$\\
+$a^{\abs{k}}$ & $\frac{1-a^2}{(1-az^{-1})(1-az)}$
+\end{tabular}
+\end{center}
 \subsubsection{Propriétés}
 \paragraph{Linéarité}
 $$Z\lbrace \alpha x(n)+\beta y(n)\rbrace=\alpha X(z)+\beta Y(z)$$

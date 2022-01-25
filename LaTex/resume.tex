@@ -1,7 +1,7 @@
 \documentclass[]{article}
 
 
-\usepackage[margin=1.5cm,landscape]{geometry}
+\usepackage[margin=1.5cm,landscape, a4paper]{geometry}
 \usepackage{fancyhdr}
 \usepackage{multicol}
 \usepackage{graphicx}
@@ -13,10 +13,12 @@
 \usepackage{subfiles}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{physics}
+\usepackage{lastpage}
 
 \rhead{}
 \lhead{}
-\cfoot{}
+\cfoot{\thepage / \pageref{LastPage}}
+\chead{\thepage / \pageref{LastPage}}
 
 \newenvironment{amatrix}[1]{%
   \left(\begin{array}{@{}*{#1}{c}|c@{}}
